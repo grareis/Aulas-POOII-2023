@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prova POOII-19/04/2023-Graziele Reis</title>
+    <style>
+        body{
+            text-align: center;
+            background-color: rgba(127, 255, 212, 0.235);
+        }
+        #container{
+            background-color: rgba(35, 179, 90, 0.623);
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            width: 400px;
+        }
+        #botao{
+            padding: 5px;
+            margin-top: 5px;
+            color: rgb(255, 255, 255);
+            background-color: rgb(8, 112, 12);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+<!--Questão: Escreva um código HTML e JavaScript que peça ao usuário para inserir dois valores inteiros entre 0 e 10 usando dois campos de entrada via documento. Uma mensagem deve ser apresentada se o valor digitado estiver fora do intervalo permitido e o campo com o valor fora do intervalo deve receber o foco. Ao clicar no botão ordenar, o código deve, então, exibir um alerta que mostre os valores informando o maior e o menor valor. Se forem iguais deve informar que são iguais.
+-->
+
+<h2>Maior e Menor valor entre dois números de 0 a 10</h2>
+
+<div id="container">
+<p><strong>Insira dois valores inteiros, em seguida clique no botão "ordenar":</strong></p>
+<label for="valor1">Primeiro valor:</label>
+<input type="number" id="valor1" name="valor1" placeholder="Insira um valor de 0 a 10"><br>
+<label for="valor2">Segundo valor:</label>
+<input type="number" id="valor2" name="valor2" placeholder="Insira um valor de 0 a 10"><br>
+<button id="botao" type="button" onclick="ordenarValores()">Ordenar</button>
+</div>
+<script>
+    function ordenarValores() {       
+        var valor1 = parseInt(document.getElementById("valor1").value);
+        var valor2 = parseInt(document.getElementById("valor2").value);
+       
+        if (valor1 < 0 || valor1 > 10) {
+            alert("O valor deve estar entre 0 e 10, tente novamente!");
+            document.getElementById("valor1").focus();
+            return;
+        }
+        if (valor2 < 0 || valor2 > 10) {
+            alert("O valor deve estar entre 0 e 10, tente novamente!");
+            document.getElementById("valor2").focus();
+            return;
+        }
+        if (valor1 < valor2) {
+            alert("O menor valor digitado é: " + valor1 + "\nO maior valor digitado é: " + valor2);
+        } else if (valor1 > valor2) {
+            alert("O menor valor digitado é: " + valor2 + "\nO maior valor digitado é: " + valor1);
+        } else {
+            alert("Os valores digitados são iguais. Insira valores diferentes!");
+        }
+    }
+</script>
+</head>
+</body>
+</html>
